@@ -1,0 +1,17 @@
+{% extends 'layout.html' %} {% block head %}
+<title>Home</title>
+{% endblock %} {% block body %}
+<div class="container text-center box">
+  <h1 class="display-4 mt-4">{{message}}</h1>
+  <form action="" method="post">
+    <div class="form-group">
+      <input type="text" placeholder='Enter your link here' class="form-control mt-4" name="link-entry" id="" />
+      <input
+        type="submit"
+        value="Get shoten link"
+        class="btn btn-primary btn-block btn-lg mt-2"
+      />
+    </div>
+  </form>
+</div>
+{% endblock %}
