@@ -38,11 +38,15 @@ def home():
                 linkid=LinkTable.query.filter_by(link=link).first().linkid
             else:
                 # If link not present in database create new and add to database
+                # Check whether newly created random linkid is already in database or not
                 linkid=createid()
+                while LinkTable.query.filter_by(linkid=linkid).first()!=None :
+                    linkid=createid
+                    # finally add the unique linkid to database
                 db.session.add(LinkTable(link=link,linkid=linkid))
                 db.session.commit()
-            
-            message=linkid
+                
+            message="Your shorten link is "+linkid
         else:
             message="Please enter a valid link"
     # Simply return homepage if GET request is made
